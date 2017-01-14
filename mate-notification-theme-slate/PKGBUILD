@@ -1,0 +1,31 @@
+#Maintainer: Josiah Ward
+#<spookykidmm@gmail.com>
+
+pkgname=mate-notification-theme-slate
+pkgver=4
+pkgrel=1
+pkgdesc ='MATE Notification Daemon Style styled after the Arc GTK Theme'
+url='https://github.com/solus-project/mate-notification-theme-slate'
+arch=('i686' 'x86_64')
+license=('GPL2')
+groups=('mate')
+depends=('mate-notification-daemon')
+source=("https://github.com/solus-project/mate-notification-theme-slate/releases/download/v${pkgver}/mate-notification-theme-slate-${pkgver}.tar.xz")
+md5sums=('aed1d4c3e520fe021134f737bb519bd2')
+
+
+build() {
+cd "${srcdir}/${pkgname}-${pkgver}"
+
+./configure
+make
+}
+
+package() {
+cd "${srcdir}/${pkgname}-${pkgver}"
+make DESTDIR="$pkgdir" prefix=/usr install 
+}
+
+
+
+
