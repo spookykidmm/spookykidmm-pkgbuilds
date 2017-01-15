@@ -1,4 +1,6 @@
-﻿
+# Maintainer: Ashley Whetter <(firstname) @ awhetter.co.uk>
+# Contributor: Eothred <yngve.levinsen@gmail.com>
+
 pkgname=spotify
 pkgver=1.0.47.13
 _anotherpkgver=.gd8e05b1f
@@ -9,8 +11,7 @@ license=('custom:"Copyright (c) 2006-2010 Spotify Ltd"')
 url="http://www.spotify.com"
 options=('!strip' '!upx')
 
-source_i686=("http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_${pkgver}${_anotherpkgver}-16_i386.deb")
-source_files=('spotify'
+source=('spotify'
 'spotify.protocol'
 'LICENSE')
 sha256sums=('989920e9360cadc1a8103b8c04acf0c87cb7911eb9a09dddb0cf4708d6249d34'
@@ -21,7 +22,7 @@ sha256sums_i686=('646a5e90ede734d215e807c35165796b89d68b5c3f3e0363208cc204d11466
 
 source_x86_64=("http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_${pkgver}${_anotherpkgver}-47_amd64.deb")
 
-
+source_i686=("http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_${pkgver}${_anotherpkgver}-16_i386.deb")
 
 depends=("alsa-lib>=1.0.14" "gconf" "gtk2" "glib2" "nss" "libsystemd" "libxtst" "libx11" "libxss" "libcurl-compat" "desktop-file-utils" "rtmpdump")
 optdepends=('ffmpeg0.10: Adds support for playback of local files'
@@ -30,7 +31,6 @@ optdepends=('ffmpeg0.10: Adds support for playback of local files'
 
 package() {
 	cd "${srcdir}"
-
 
 	tar -xzf data.tar.gz -C "${pkgdir}"
 
